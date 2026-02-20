@@ -23,7 +23,10 @@ overflow-x:hidden;
 
 #tela1{
 height:100vh;
-background:url("por-do-sol.jpg") center/cover no-repeat;
+background:url("thay1.jpg") center/cover no-repeat;
+background-position:center;
+background-size:cover;
+background-attachment:fixed;
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -163,6 +166,45 @@ to{transform:translateY(-10vh);}
 .hero{font-size:36px;}
 .overlay{font-size:18px;padding:30px;}
 }
+
+/* ===== ANIMAÇÃO SUAVE CINEMATOGRÁFICA ===== */
+
+#tela1{
+animation: zoomFundo 15s ease-in-out infinite alternate;
+position:relative;
+}
+
+@keyframes zoomFundo{
+from{
+background-size:100%;
+}
+to{
+background-size:110%;
+}
+}
+
+.pergunta{
+opacity:0;
+transform:translateY(30px);
+animation:fadeUp 1.5s ease forwards;
+animation-delay:0.5s;
+}
+
+.botoes{
+opacity:0;
+transform:translateY(30px);
+animation:fadeUp 1.5s ease forwards;
+animation-delay:1.2s;
+}
+
+@keyframes fadeUp{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+</style>
 
 </style>
 </head>
