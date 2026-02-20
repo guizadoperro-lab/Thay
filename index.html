@@ -5,81 +5,104 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Você me ama?</title>
 
+<!-- Fonte forte -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+
 <style>
-body{
+*{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
     height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(135deg,#ff4e88,#ff9ecf);
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:'Poppins', sans-serif;
     overflow:hidden;
-    text-align:center;
+    position:relative;
     color:white;
 }
 
-.container{
-    position:relative;
+/* FOTO DE FUNDO */
+body::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:url('thay1.jpg') center/cover no-repeat;
+    filter:brightness(0.5);
+    z-index:-1;
 }
 
+/* CONTAINER CENTRAL */
+.container{
+    text-align:center;
+}
+
+/* TÍTULO FORTE */
 h1{
-    font-size:2.5em;
+    font-size:3.2rem;
+    font-weight:900;
     margin-bottom:40px;
+    text-shadow:0 0 20px rgba(0,0,0,0.7);
+}
+
+/* BOTÕES */
+.botoes{
+    display:flex;
+    gap:20px;
+    justify-content:center;
 }
 
 button{
-    padding:15px 30px;
+    padding:15px 35px;
     font-size:18px;
     border:none;
     border-radius:30px;
     cursor:pointer;
-    margin:10px;
     transition:0.3s;
+    font-weight:700;
 }
 
 #sim{
     background:white;
-    color:#ff4e88;
-    position:absolute;
+    color:#ff2e7a;
+}
+
+#sim:hover{
+    transform:scale(1.1);
 }
 
 #nao{
-    background:#222;
+    background:#111;
     color:white;
 }
 
-.mensagem{
+#nao:hover{
+    transform:scale(1.1);
+}
+
+/* MENSAGEM */
+#mensagem{
     margin-top:30px;
-    font-size:1.3em;
-    animation:fade 0.5s ease-in-out;
-}
-
-@keyframes fade{
-    from{opacity:0;}
-    to{opacity:1;}
-}
-
-.coracao{
-    position:absolute;
-    color:red;
-    font-size:20px;
-    animation:subir 3s linear infinite;
-}
-
-@keyframes subir{
-    0%{transform:translateY(0); opacity:1;}
-    100%{transform:translateY(-200px); opacity:0;}
+    font-size:1.2rem;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container" id="conteudo">
+<div class="container">
     <h1>Você me ama?</h1>
-    <button id="sim">SIM ❤️</button>
-    <button id="nao">NÃO 😒</button>
+
+    <div class="botoes">
+        <button id="sim">SIM ❤️</button>
+        <button id="nao">NÃO 😒</button>
+    </div>
+
     <div id="mensagem"></div>
 </div>
 
@@ -88,15 +111,15 @@ let tentativas = 0;
 const botaoSim = document.getElementById("sim");
 const botaoNao = document.getElementById("nao");
 const mensagem = document.getElementById("mensagem");
-const conteudo = document.getElementById("conteudo");
 
 function moverBotao(){
     const largura = window.innerWidth - 150;
-    const altura = window.innerHeight - 100;
+    const altura = window.innerHeight - 80;
 
     const novaLargura = Math.random() * largura;
     const novaAltura = Math.random() * altura;
 
+    botaoSim.style.position = "absolute";
     botaoSim.style.left = novaLargura + "px";
     botaoSim.style.top = novaAltura + "px";
 }
@@ -107,61 +130,26 @@ botaoSim.addEventListener("click", () => {
     if(tentativas < 3){
         moverBotao();
     }else{
-        mostrarDeclaracao();
+        document.body.innerHTML = `
+        <div style="height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; background:black; color:white; text-align:center; padding:20px;">
+            <h1 style="font-size:2.5rem; margin-bottom:20px;">
+            Você deve me amar muito né? 😏
+            </h1>
+            <p style="max-width:600px; font-size:1.2rem;">
+            Então deixa eu te mostrar um pouco do quanto eu te amo...
+            </p>
+        </div>
+        `;
     }
 });
 
 botaoNao.addEventListener("click", () => {
     mensagem.innerHTML = `
-        <div class="mensagem">
-            Você está mentindo 😌 <br><br>
-            Detectando mentira... 10%... 50%... 99%... <br>
-            Mentira confirmada ✅ <br><br>
-            Agora responde direito 😏
-        </div>
+        Você está mentindo 😌 <br><br>
+        Detectando mentira... 99%... <br>
+        Mentira confirmada ✅
     `;
 });
-
-function mostrarDeclaracao(){
-    conteudo.innerHTML = `
-        <h1>Você deve me amar muito né? 😏</h1>
-        <p style="font-size:20px; margin-top:20px;">
-        Então deixa eu te mostrar um pouco do quanto eu te amo... ❤️
-        </p>
-        <br><br>
-        <p style="max-width:600px; margin:auto; font-size:18px;">
-        Eu não te amo de um jeito comum.<br><br>
-        Eu te amo com intenção.<br>
-        Com planos.<br>
-        Com futuro.<br>
-        Com vontade de crescer ao seu lado.<br><br>
-        De todas as pessoas do mundo...<br>
-        Eu escolheria você.<br><br>
-        Em todas as vidas. 💍
-        </p>
-        <br><br>
-        <button onclick="explodirCoracoes()" style="background:white; color:#ff4e88;">
-            Você aceita viver tudo isso comigo? ❤️
-        </button>
-    `;
-}
-
-function explodirCoracoes(){
-    for(let i=0;i<30;i++){
-        let coracao = document.createElement("div");
-        coracao.classList.add("coracao");
-        coracao.innerHTML = "❤️";
-        coracao.style.left = Math.random()*window.innerWidth + "px";
-        coracao.style.top = window.innerHeight + "px";
-        document.body.appendChild(coracao);
-
-        setTimeout(()=>{coracao.remove();},3000);
-    }
-
-    setTimeout(()=>{
-        alert("Então se prepara... porque eu vou te amar todos os dias da minha vida ❤️");
-    },500);
-}
 </script>
 
 </body>
