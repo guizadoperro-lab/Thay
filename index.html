@@ -15,11 +15,11 @@ font-family:'Segoe UI',sans-serif;
 
 body{
 overflow-x:hidden;
-background:black;
 color:white;
+background:black;
 }
 
-/* ===== TELA 1 ===== */
+/* ================= TELA 1 ================= */
 
 .tela1{
 height:100vh;
@@ -28,13 +28,13 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)),
+background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.6)),
 url("thay1.jpg") center/cover no-repeat;
 position:relative;
 }
 
 .tela1 h1{
-font-size:40px;
+font-size:42px;
 margin-bottom:30px;
 animation:pulse 2s infinite;
 }
@@ -46,10 +46,10 @@ position:relative;
 }
 
 button{
-padding:12px 30px;
+padding:14px 34px;
 border:none;
-border-radius:30px;
-font-size:18px;
+border-radius:40px;
+font-size:20px;
 cursor:pointer;
 transition:0.3s;
 }
@@ -70,17 +70,18 @@ transform:scale(1.1);
 
 .mensagemNao{
 margin-top:20px;
-font-size:18px;
+font-size:20px;
 color:#ffd1dc;
 }
 
-/* ===== CORAÇÕES ===== */
+/* ================= CORAÇÕES ================= */
 
 .coracao{
 position:fixed;
 bottom:-20px;
 animation:subir 6s linear infinite;
 pointer-events:none;
+z-index:999;
 }
 
 @keyframes subir{
@@ -88,49 +89,51 @@ pointer-events:none;
 100%{transform:translateY(-120vh) scale(1.5); opacity:0;}
 }
 
-/* ===== TELA 2 ===== */
+/* ================= TELA 2 ================= */
 
 .tela2{
 display:none;
-background:linear-gradient(135deg,#ff0055,#ff1744);
-padding:80px 20px;
 min-height:100vh;
+padding:120px 30px;
+background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.75)),
+url("thay1.jpg") center center no-repeat;
+background-size:cover;
 animation:fadeIn 1.5s ease forwards;
 }
 
 .hero{
 text-align:center;
-font-size:42px;
-margin-bottom:40px;
+font-size:52px;
+margin-bottom:70px;
 animation:brilho 3s infinite alternate;
 }
 
 @keyframes brilho{
 0%{text-shadow:0 0 10px white;}
-100%{text-shadow:0 0 30px pink;}
+100%{text-shadow:0 0 35px hotpink;}
 }
 
 .carta{
-max-width:900px;
+max-width:950px;
 margin:auto;
-line-height:1.8;
-font-size:18px;
-animation:slideUp 2s ease;
+line-height:2;
+font-size:22px;
 white-space:pre-line;
+animation:slideUp 2s ease;
 }
 
 @keyframes slideUp{
-from{transform:translateY(40px); opacity:0;}
+from{transform:translateY(50px); opacity:0;}
 to{transform:translateY(0); opacity:1;}
 }
 
-/* ===== GALERIA ===== */
+/* ================= GALERIA ================= */
 
 .galeria{
-margin-top:60px;
+margin-top:80px;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
 }
 
 .foto{
@@ -148,47 +151,53 @@ transition:0.5s;
 }
 
 .foto:hover img{
-transform:scale(1.1);
-filter:brightness(70%);
+transform:scale(1.08);
+filter:brightness(60%);
 }
 
-.foto::after{
-content:"💖";
+.overlay{
 position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%) scale(0);
-font-size:40px;
-transition:0.4s;
+bottom:0;
+width:100%;
+padding:20px;
+background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);
+font-size:16px;
+opacity:0;
+transition:0.5s;
 }
 
-.foto:hover::after{
-transform:translate(-50%,-50%) scale(1.5);
+.foto:hover .overlay{
+opacity:1;
 }
 
-/* ===== PARA SEMPRE ===== */
+/* Mobile toque */
+.foto.active .overlay{
+opacity:1;
+}
+
+/* ================= FINAL ================= */
 
 .paraSempre{
-margin-top:80px;
+margin-top:100px;
 text-align:center;
-font-size:28px;
+font-size:32px;
 animation:pulse 2s infinite;
 }
 
 .destaqueFinal{
-margin-top:30px;
+margin-top:40px;
 display:flex;
 justify-content:center;
 }
 
 .destaqueFinal img{
-width:300px;
+width:320px;
 border-radius:20px;
-box-shadow:0 0 20px rgba(255,255,255,0.6);
+box-shadow:0 0 25px rgba(255,255,255,0.5);
 animation:pulse 3s infinite;
 }
 
-/* ===== ANIMAÇÕES ===== */
+/* ================= ANIMAÇÕES ================= */
 
 @keyframes pulse{
 0%{transform:scale(1);}
@@ -201,12 +210,17 @@ from{opacity:0;}
 to{opacity:1;}
 }
 
+@media(max-width:768px){
+.hero{font-size:38px;}
+.carta{font-size:18px;}
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- ===== TELA 1 ===== -->
+<!-- ================= TELA 1 ================= -->
 
 <section class="tela1" id="tela1">
 <h1>Você me ama? 💕</h1>
@@ -219,7 +233,7 @@ to{opacity:1;}
 <div class="mensagemNao" id="msgNao"></div>
 </section>
 
-<!-- ===== TELA 2 ===== -->
+<!-- ================= TELA 2 ================= -->
 
 <section class="tela2" id="tela2">
 
@@ -246,11 +260,42 @@ Eu te amo. 💕
 </div>
 
 <div class="galeria">
-<div class="foto"><img src="thay2.jpg"></div>
-<div class="foto"><img src="thay3.jpg"></div>
-<div class="foto"><img src="thay4.jpg"></div>
-<div class="foto"><img src="thay5.jpg"></div>
-<div class="foto"><img src="thay6.jpg"></div>
+
+<div class="foto" onclick="toggleFoto(this)">
+<img src="thay2.jpg">
+<div class="overlay">
+Você é o sinônimo de paz pro meu dia a dia. Acordo pensando em você e vou dormir pensando em você.
+</div>
+</div>
+
+<div class="foto" onclick="toggleFoto(this)">
+<img src="thay3.jpg">
+<div class="overlay">
+Sua alegria é a minha felicidade. Se você tiver feliz, eu tô feliz.
+</div>
+</div>
+
+<div class="foto" onclick="toggleFoto(this)">
+<img src="thay4.jpg">
+<div class="overlay">
+Você é linda, meu amor… mas isso é o de menos em você.
+</div>
+</div>
+
+<div class="foto" onclick="toggleFoto(this)">
+<img src="thay5.jpg">
+<div class="overlay">
+Cada momento contigo é incrível e único.
+</div>
+</div>
+
+<div class="foto" onclick="toggleFoto(this)">
+<img src="thay6.jpg">
+<div class="overlay">
+Seu toque é onde me encontro.
+</div>
+</div>
+
 </div>
 
 <div class="paraSempre">
@@ -284,8 +329,8 @@ const btnSim=document.getElementById("sim");
 btnSim.addEventListener("mouseover",()=>{
 if(tentativas<2){
 btnSim.style.position="absolute";
-btnSim.style.left=Math.random()*80+"%";
-btnSim.style.top=Math.random()*80+"%";
+btnSim.style.left=Math.random()*70+"%";
+btnSim.style.top=Math.random()*70+"%";
 tentativas++;
 }else{
 btnSim.onclick=abrirTela2;
@@ -301,6 +346,10 @@ function abrirTela2(){
 document.getElementById("tela1").style.display="none";
 document.getElementById("tela2").style.display="block";
 window.scrollTo(0,0);
+}
+
+function toggleFoto(el){
+el.classList.toggle("active");
 }
 
 </script>
