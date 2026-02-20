@@ -24,9 +24,6 @@ overflow-x:hidden;
 #tela1{
 height:100vh;
 background:url("thay1.jpg") center/cover no-repeat;
-background-position:center;
-background-size:cover;
-background-attachment:fixed;
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -37,9 +34,9 @@ position:relative;
 }
 
 .pergunta{
-font-size:40px;
+font-size:42px;
 margin-bottom:30px;
-text-shadow:0 0 20px #ff0080;
+text-shadow:0 0 20px #ff0066;
 }
 
 .botoes{
@@ -77,48 +74,36 @@ font-size:20px;
 #tela2{
 display:none;
 background:url("thay1.jpg") center/cover fixed no-repeat;
-padding:80px 20px;
+padding:100px 20px;
 color:white;
 position:relative;
-min-height:200vh; /* AQUI AUMENTEI A ALTURA PRA MAIS ROLAGEM */
+min-height:220vh; /* MAIS ROLAGEM */
 }
 
 .overlay{
 background:rgba(0,0,0,0.65);
 backdrop-filter:blur(6px);
-padding:50px;
-border-radius:35px;
-max-width:900px;
-margin:0 auto 80px auto;
-font-size:22px;
-line-height:1.9;
+padding:60px;
+border-radius:40px;
+max-width:950px;
+margin:0 auto 100px auto;
+font-size:24px;
+line-height:2;
 box-shadow:0 0 40px rgba(255,0,100,0.6);
-}
-
-.hero{
-text-align:center;
-font-size:50px;
-margin-bottom:40px;
-animation:brilho 2s infinite alternate;
-}
-
-@keyframes brilho{
-from{text-shadow:0 0 10px #ff0080;}
-to{text-shadow:0 0 30px #ff0000;}
 }
 
 /* GALERIA */
 .galeria{
 display:flex;
 flex-direction:column;
-gap:60px;
+gap:70px;
 align-items:center;
 }
 
 .card{
 position:relative;
 width:90%;
-max-width:500px;
+max-width:520px;
 overflow:hidden;
 border-radius:30px;
 }
@@ -163,48 +148,8 @@ to{transform:translateY(-10vh);}
 /* RESPONSIVO */
 @media(max-width:768px){
 .pergunta{font-size:28px;}
-.hero{font-size:36px;}
 .overlay{font-size:18px;padding:30px;}
 }
-
-/* ===== ANIMAÇÃO SUAVE CINEMATOGRÁFICA ===== */
-
-#tela1{
-animation: zoomFundo 15s ease-in-out infinite alternate;
-position:relative;
-}
-
-@keyframes zoomFundo{
-from{
-background-size:100%;
-}
-to{
-background-size:110%;
-}
-}
-
-.pergunta{
-opacity:0;
-transform:translateY(30px);
-animation:fadeUp 1.5s ease forwards;
-animation-delay:0.5s;
-}
-
-.botoes{
-opacity:0;
-transform:translateY(30px);
-animation:fadeUp 1.5s ease forwards;
-animation-delay:1.2s;
-}
-
-@keyframes fadeUp{
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-</style>
 
 </style>
 </head>
@@ -226,8 +171,6 @@ transform:translateY(0);
 <!-- ================= TELA 2 ================= -->
 
 <div id="tela2">
-
-<h1 class="hero">Para Thayanne ✨</h1>
 
 <div class="overlay">
 Eu sei que você me ama, e eu também te amo. Mas a verdade é que palavras nunca serão suficientes para explicar o que eu sinto por você. É um sentimento imensurável, que cresce só de pensar em você, de lembrar do seu sorriso ou de imaginar o seu abraço. No dia em que você entrou na minha vida, tudo mudou. Meu mundo era completamente cinza e, de repente, ficou repleto de cores fortes. Você trouxe luz para partes minhas que nem eu conhecia direito. Trouxe sentido, trouxe calma e trouxe direção.
@@ -274,8 +217,6 @@ Tenho certeza de que a melhor escolha da minha vida foi ter você ao meu lado. E
 </div>
 
 </div>
-
-<!-- ================= SCRIPT ================= -->
 
 <script>
 
