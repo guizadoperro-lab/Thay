@@ -3,101 +3,106 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Você me ama?</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+<title>Meu Amor</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
 body{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-family:'Poppins', sans-serif;
-    overflow:hidden;
-    position:relative;
-    color:white;
-}
-
-/* FOTO DE FUNDO */
-body::before{
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:url('thay1.jpg') center/cover no-repeat;
-    filter:brightness(0.45);
-    z-index:-1;
-}
-
-/* CONTAINER CENTRAL (SUBIDO UM POUCO) */
-.container{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: url("thay1.jpg") no-repeat center center fixed;
+    background-size: cover;
     text-align:center;
-    transform:translateY(-60px);
+    color:white;
+    overflow-x:hidden;
 }
 
-/* TÍTULO FORTE */
+.container{
+    background: rgba(0,0,0,0.75);
+    min-height:100vh;
+    padding:40px 20px;
+}
+
 h1{
-    font-size:3.5rem;
-    font-weight:900;
-    margin-bottom:50px;
-    text-shadow:0 0 25px rgba(0,0,0,0.8);
+    margin-top:40px;
+    font-size:28px;
 }
 
-/* BOTÕES */
-.botoes{
-    display:flex;
-    gap:25px;
-    justify-content:center;
+.login{
+    margin-top:30px;
+}
+
+.password-box{
+    display:inline-flex;
+    align-items:center;
+    margin-top:15px;
+    background:white;
+    border-radius:8px;
+    overflow:hidden;
+}
+
+.password-box input{
+    border:none;
+    outline:none;
+    padding:12px;
+    width:180px;
+}
+
+.eye{
+    padding:12px;
+    cursor:pointer;
+    background:#eee;
 }
 
 button{
-    padding:15px 35px;
-    font-size:18px;
+    margin-top:20px;
+    padding:12px 25px;
     border:none;
-    border-radius:30px;
+    border-radius:10px;
+    background:#ff4da6;
+    color:white;
+    font-size:16px;
     cursor:pointer;
     transition:0.3s;
-    font-weight:700;
 }
 
-#sim{
-    background:white;
-    color:#ff2e7a;
+button:hover{
+    background:#ff1a8c;
 }
 
-#sim:hover{
-    transform:scale(1.1);
+.erro{
+    color:#ff8080;
+    margin-top:10px;
 }
 
-#nao{
-    background:#111;
-    color:white;
-}
-
-#nao:hover{
-    transform:scale(1.1);
-}
-
-/* MENSAGEM */
-#mensagem{
-    margin-top:30px;
-    font-size:1.2rem;
-    max-width:300px;
+.texto-final{
+    margin-top:60px;
+    max-width:800px;
     margin-left:auto;
     margin-right:auto;
-    animation:fade 0.4s ease-in-out;
+    font-size:18px;
+    line-height:1.8;
+    display:none;
+    white-space:pre-line;
 }
 
-@keyframes fade{
-    from{opacity:0;}
-    to{opacity:1;}
+/* Corações */
+.coracao{
+    position:fixed;
+    bottom:-20px;
+    font-size:20px;
+    animation:subir 6s linear infinite;
+    opacity:0.7;
+}
+
+@keyframes subir{
+    0%{
+        transform:translateY(0);
+        opacity:0.8;
+    }
+    100%{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
 }
 </style>
 </head>
@@ -105,60 +110,94 @@ button{
 <body>
 
 <div class="container">
-    <h1>Você me ama?</h1>
 
-    <div class="botoes">
-        <button id="sim">SIM ❤️</button>
-        <button id="nao">NÃO 😒</button>
+<h1>O que eu mais gosto em você?</h1>
+
+<div class="login">
+    <div class="password-box">
+        <input type="password" id="senha" placeholder="Digite a senha">
+        <span class="eye" onclick="toggleSenha()">👁</span>
     </div>
+    <br>
+    <button onclick="verificar()">Entrar</button>
+    <div class="erro" id="erro"></div>
+</div>
 
-    <div id="mensagem"></div>
+<div class="texto-final" id="textoFinal"></div>
+
 </div>
 
 <script>
-let tentativas = 0;
-const botaoSim = document.getElementById("sim");
-const botaoNao = document.getElementById("nao");
-const mensagem = document.getElementById("mensagem");
 
-function moverBotao(){
-    const largura = window.innerWidth - 150;
-    const altura = window.innerHeight - 80;
+const textoRomantico = `Eu sei que você me ama, e eu também te amo. Mas a verdade é que palavras nunca serão suficientes para explicar o que eu sinto por você. É um sentimento imensurável, que cresce só de pensar em você, de lembrar do seu sorriso ou de imaginar o seu abraço.
 
-    const novaLargura = Math.random() * largura;
-    const novaAltura = Math.random() * altura;
+No dia em que você entrou na minha vida, tudo mudou. Meu mundo era completamente cinza e, de repente, ficou repleto de cores fortes. Você trouxe luz para partes minhas que nem eu conhecia direito. Trouxe sentido, trouxe calma e trouxe direção.
 
-    botaoSim.style.position = "absolute";
-    botaoSim.style.left = novaLargura + "px";
-    botaoSim.style.top = novaAltura + "px";
+Quando olho para o céu, vejo as estrelas e lembro do brilho dos seus olhos. Assim como elas iluminam a escuridão da noite, você ilumina meus dias mais difíceis. Mesmo quando tudo parece um túnel escuro, é você quem me guia para a saída.
+
+Sinto um orgulho enorme da mulher que você é: forte, resiliente, carismática e simplesmente incrível. Amar você não é apenas um sentimento, é uma honra. Nunca imaginei amar alguém nesse nível, de um jeito que acalma e ao mesmo tempo acelera o coração.
+
+Você é meu refúgio nos dias difíceis, minha paz em meio ao caos e minha paixão por completo. Seu abraço é o lugar mais seguro do mundo, sua risada é meu fôlego, e seu sorriso tem um brilho único que transforma qualquer momento.
+
+Tenho certeza de que a melhor escolha da minha vida foi ter você ao meu lado. Em você eu encontrei tudo aquilo que achava impossível encontrar em uma única pessoa.
+
+Amar você é fácil. É leve. É verdadeiro.
+
+E se eu tivesse que escolher de novo, eu escolheria você em todas as vidas.
+
+Eu te amo. 💕`;
+
+function toggleSenha(){
+    const senha = document.getElementById("senha");
+    senha.type = senha.type === "password" ? "text" : "password";
 }
 
-botaoSim.addEventListener("click", () => {
-    tentativas++;
+function verificar(){
+    const senha = document.getElementById("senha").value.toLowerCase();
+    const erro = document.getElementById("erro");
 
-    if(tentativas < 3){
-        moverBotao();
+    if(senha === "olhos"){
+        document.querySelector(".login").style.display = "none";
+        iniciarDigitacao();
+        iniciarCoracoes();
     }else{
-        document.body.innerHTML = `
-        <div style="height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; background:black; color:white; text-align:center; padding:20px;">
-            <h1 style="font-size:2.5rem; margin-bottom:20px;">
-            Você deve me amar muito né? 😏
-            </h1>
-            <p style="max-width:600px; font-size:1.2rem;">
-            Então deixa eu te mostrar um pouco do quanto eu te amo...
-            </p>
-        </div>
-        `;
+        erro.innerText = "Resposta errada 😅 tenta de novo, meu amor.";
     }
-});
+}
 
-botaoNao.addEventListener("click", () => {
-    mensagem.innerHTML = `
-        Você está mentindo, amor. <br><br>
-        Eu conheço o seu olhar... <br>
-        Você me ama sim ❤️
-    `;
-});
+function iniciarDigitacao(){
+    const elemento = document.getElementById("textoFinal");
+    elemento.style.display = "block";
+    let i = 0;
+
+    function digitar(){
+        if(i < textoRomantico.length){
+            elemento.innerHTML += textoRomantico.charAt(i);
+            i++;
+            setTimeout(digitar, 25);
+        }
+    }
+
+    digitar();
+}
+
+function iniciarCoracoes(){
+    setInterval(()=>{
+        const coracao = document.createElement("div");
+        coracao.classList.add("coracao");
+        coracao.innerHTML = "💖";
+        coracao.style.left = Math.random() * 100 + "vw";
+        coracao.style.fontSize = (15 + Math.random() * 20) + "px";
+        coracao.style.animationDuration = (4 + Math.random() * 4) + "s";
+        document.body.appendChild(coracao);
+
+        setTimeout(()=>{
+            coracao.remove();
+        },7000);
+
+    },400);
+}
+
 </script>
 
 </body>
