@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Você me ama?</title>
 
-<!-- Fonte forte -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" rel="stylesheet">
 
 <style>
@@ -33,27 +32,28 @@ body::before{
     width:100%;
     height:100%;
     background:url('thay1.jpg') center/cover no-repeat;
-    filter:brightness(0.5);
+    filter:brightness(0.45);
     z-index:-1;
 }
 
-/* CONTAINER CENTRAL */
+/* CONTAINER CENTRAL (SUBIDO UM POUCO) */
 .container{
     text-align:center;
+    transform:translateY(-60px);
 }
 
 /* TÍTULO FORTE */
 h1{
-    font-size:3.2rem;
+    font-size:3.5rem;
     font-weight:900;
-    margin-bottom:40px;
-    text-shadow:0 0 20px rgba(0,0,0,0.7);
+    margin-bottom:50px;
+    text-shadow:0 0 25px rgba(0,0,0,0.8);
 }
 
 /* BOTÕES */
 .botoes{
     display:flex;
-    gap:20px;
+    gap:25px;
     justify-content:center;
 }
 
@@ -89,6 +89,15 @@ button{
 #mensagem{
     margin-top:30px;
     font-size:1.2rem;
+    max-width:300px;
+    margin-left:auto;
+    margin-right:auto;
+    animation:fade 0.4s ease-in-out;
+}
+
+@keyframes fade{
+    from{opacity:0;}
+    to{opacity:1;}
 }
 </style>
 </head>
@@ -145,9 +154,9 @@ botaoSim.addEventListener("click", () => {
 
 botaoNao.addEventListener("click", () => {
     mensagem.innerHTML = `
-        Você está mentindo 😌 <br><br>
-        Detectando mentira... 99%... <br>
-        Mentira confirmada ✅
+        Você está mentindo, amor. <br><br>
+        Eu conheço o seu olhar... <br>
+        Você me ama sim ❤️
     `;
 });
 </script>
