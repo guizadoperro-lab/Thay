@@ -3,23 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Thayanne ❤️</title>
+<title>Para Thayanne 💕</title>
 
 <style>
+
+/* ===== RESET ===== */
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
+font-family: 'Segoe UI', sans-serif;
 }
 
 body{
 overflow-x:hidden;
-color:white;
 background:black;
+color:white;
 }
 
-/* ================= TELA 1 ================= */
+/* ===== TELA 1 ===== */
 
 .tela1{
 height:100vh;
@@ -27,40 +29,38 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
+background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7)),
+url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") center/cover no-repeat;
 text-align:center;
-background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.6)),
-url("thay1.jpg") center/cover no-repeat;
 position:relative;
 }
 
-.tela1 h1{
-font-size:42px;
-margin-bottom:30px;
-animation:pulse 2s infinite;
+.pergunta{
+font-size:36px;
+margin-bottom:40px;
 }
 
 .botoes{
 display:flex;
 gap:20px;
-position:relative;
 }
 
 button{
-padding:14px 34px;
-border:none;
-border-radius:40px;
+padding:15px 35px;
 font-size:20px;
+border:none;
+border-radius:30px;
 cursor:pointer;
 transition:0.3s;
 }
 
 #sim{
-background:#ff0066;
+background:#ff007f;
 color:white;
 }
 
 #nao{
-background:#ff1744;
+background:#ff4d4d;
 color:white;
 }
 
@@ -68,289 +68,228 @@ button:hover{
 transform:scale(1.1);
 }
 
-.mensagemNao{
+.msgNao{
 margin-top:20px;
 font-size:20px;
-color:#ffd1dc;
+color:#ffb3d9;
+display:none;
 }
 
-/* ================= CORAÇÕES ================= */
+/* ===== CORAÇÕES ===== */
 
 .coracao{
 position:fixed;
-bottom:-20px;
-animation:subir 6s linear infinite;
+color:#ff007f;
+animation:subir 4s linear forwards;
 pointer-events:none;
-z-index:999;
+font-size:20px;
 }
 
 @keyframes subir{
-0%{transform:translateY(0) scale(1); opacity:1;}
-100%{transform:translateY(-120vh) scale(1.5); opacity:0;}
+0%{transform:translateY(0) scale(1);opacity:1;}
+100%{transform:translateY(-800px) scale(2);opacity:0;}
 }
 
-/* ================= TELA 2 ================= */
+/* ===== TELA 2 ===== */
 
 .tela2{
 display:none;
 min-height:100vh;
-padding:120px 30px;
-background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.75)),
+padding:100px 20px;
+background:linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
 url("thay1.jpg") center center no-repeat;
 background-size:cover;
-animation:fadeIn 1.5s ease forwards;
 }
 
+/* HERO */
 .hero{
 text-align:center;
 font-size:52px;
-margin-bottom:70px;
+margin-bottom:60px;
+color:#ff4da6;
 animation:brilho 3s infinite alternate;
 }
 
 @keyframes brilho{
-0%{text-shadow:0 0 10px white;}
-100%{text-shadow:0 0 35px hotpink;}
+from{text-shadow:0 0 10px #ff007f;}
+to{text-shadow:0 0 25px #ff3399;}
 }
+
+/* CARTA ESTILO DA IMAGEM */
 
 .carta{
-max-width:950px;
-margin:auto;
-line-height:2;
+max-width:800px;
+margin:0 auto;
+background:white;
+color:#333;
+padding:50px 40px;
+border-radius:25px;
+box-shadow:0 15px 40px rgba(0,0,0,0.4);
 font-size:22px;
-white-space:pre-line;
-animation:slideUp 2s ease;
+line-height:1.8;
+position:relative;
 }
 
-@keyframes slideUp{
-from{transform:translateY(50px); opacity:0;}
-to{transform:translateY(0); opacity:1;}
+.carta::before{
+content:"";
+position:absolute;
+left:0;
+top:0;
+height:100%;
+width:8px;
+background:#ff007f;
+border-top-left-radius:25px;
+border-bottom-left-radius:25px;
 }
 
-/* ================= GALERIA ================= */
+.carta p{
+margin-bottom:25px;
+}
+
+/* BLOCO DESTACADO */
+
+.destaque{
+background:#fff5f9;
+padding:25px;
+border-radius:15px;
+font-style:italic;
+box-shadow:0 5px 20px rgba(255,0,127,0.2);
+}
+
+/* ===== GALERIA ===== */
 
 .galeria{
 margin-top:80px;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:25px;
 }
 
-.foto{
-position:relative;
-overflow:hidden;
-border-radius:20px;
-cursor:pointer;
-}
-
-.foto img{
+.galeria img{
 width:100%;
-height:100%;
+height:400px;
 object-fit:cover;
-transition:0.5s;
-}
-
-.foto:hover img{
-transform:scale(1.08);
-filter:brightness(60%);
-}
-
-.overlay{
-position:absolute;
-bottom:0;
-width:100%;
-padding:20px;
-background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);
-font-size:16px;
-opacity:0;
-transition:0.5s;
-}
-
-.foto:hover .overlay{
-opacity:1;
-}
-
-/* Mobile toque */
-.foto.active .overlay{
-opacity:1;
-}
-
-/* ================= FINAL ================= */
-
-.paraSempre{
-margin-top:100px;
-text-align:center;
-font-size:32px;
-animation:pulse 2s infinite;
-}
-
-.destaqueFinal{
-margin-top:40px;
-display:flex;
-justify-content:center;
-}
-
-.destaqueFinal img{
-width:320px;
 border-radius:20px;
-box-shadow:0 0 25px rgba(255,255,255,0.5);
-animation:pulse 3s infinite;
+transition:0.4s;
 }
 
-/* ================= ANIMAÇÕES ================= */
-
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.05);}
-100%{transform:scale(1);}
+.galeria img:hover{
+transform:scale(1.08);
+box-shadow:0 10px 30px rgba(255,0,127,0.5);
 }
 
-@keyframes fadeIn{
-from{opacity:0;}
-to{opacity:1;}
+/* ===== FINAL ===== */
+
+.final{
+margin-top:80px;
+text-align:center;
+font-size:28px;
+color:#ff4da6;
 }
 
 @media(max-width:768px){
-.hero{font-size:38px;}
-.carta{font-size:18px;}
+.hero{font-size:36px;}
+.carta{font-size:20px;padding:35px;}
+.galeria img{height:320px;}
 }
 
 </style>
 </head>
-
 <body>
 
-<!-- ================= TELA 1 ================= -->
-
-<section class="tela1" id="tela1">
-<h1>Você me ama? 💕</h1>
+<!-- TELA 1 -->
+<div class="tela1" id="tela1">
+<h1 class="pergunta">Você me ama?</h1>
 
 <div class="botoes">
-<button id="sim">Sim</button>
-<button id="nao" onclick="respostaNao()">Não</button>
+<button id="sim">Sim 💖</button>
+<button id="nao">Não 😅</button>
 </div>
 
-<div class="mensagemNao" id="msgNao"></div>
-</section>
+<p class="msgNao" id="msgNao">
+Você está mentindo, amor... eu conheço o seu olhar. 💕
+</p>
+</div>
 
-<!-- ================= TELA 2 ================= -->
+<!-- TELA 2 -->
+<div class="tela2" id="tela2">
 
-<section class="tela2" id="tela2">
-
-<div class="hero">Para Thayanne ✨</div>
+<h1 class="hero">Para Thayanne 💕</h1>
 
 <div class="carta">
-Eu sei que você me ama, e eu também te amo. Mas a verdade é que palavras nunca serão suficientes para explicar o que eu sinto por você. É um sentimento imensurável, que cresce só de pensar em você, de lembrar do seu sorriso ou de imaginar o seu abraço.
 
-No dia em que você entrou na minha vida, tudo mudou. Meu mundo era completamente cinza e, de repente, ficou repleto de cores fortes. Você trouxe luz para partes minhas que nem eu conhecia direito. Trouxe sentido, trouxe calma e trouxe direção.
+<p>Eu sei que você me ama, e eu também te amo. Mas a verdade é que palavras nunca serão suficientes para explicar o que eu sinto por você. É um sentimento imensurável, que cresce só de pensar em você, de lembrar do seu sorriso ou de imaginar o seu abraço.</p>
 
-Quando olho para o céu, vejo as estrelas e lembro do brilho dos seus olhos. Assim como elas iluminam a escuridão da noite, você ilumina meus dias mais difíceis. Mesmo quando tudo parece um túnel escuro, é você quem me guia para a saída.
+<p>No dia em que você entrou na minha vida, tudo mudou. Meu mundo era completamente cinza e, de repente, ficou repleto de cores fortes. Você trouxe luz para partes minhas que nem eu conhecia direito. Trouxe sentido, trouxe calma e trouxe direção.</p>
 
-Sinto um orgulho enorme da mulher que você é: forte, resiliente, carismática e simplesmente incrível. Amar você não é apenas um sentimento, é uma honra. Nunca imaginei amar alguém nesse nível, de um jeito que acalma e ao mesmo tempo acelera o coração.
+<div class="destaque">
+Quando olho para o céu, vejo as estrelas e sinto o brilho dos seus olhos. Assim como elas iluminam a escuridão da noite, você ilumina meus dias mais difíceis. Mesmo quando tudo parece um túnel escuro, é você quem me guia para a saída.
+</div>
 
-Você é meu refúgio nos dias difíceis, minha paz em meio ao caos e minha paixão por completo. Seu abraço é o lugar mais seguro do mundo, sua risada é meu fôlego, e seu sorriso tem um brilho único que transforma qualquer momento.
+<p>Sinto um orgulho enorme da mulher que você é: forte, resiliente, carismática e simplesmente incrível. Amar você não é apenas um sentimento, é uma honra.</p>
 
-Tenho certeza de que a melhor escolha da minha vida foi ter você ao meu lado. Em você eu encontrei tudo aquilo que achava impossível encontrar em uma única pessoa.
+<p>Você é meu refúgio nos dias difíceis, minha paz em meio ao caos e minha paixão por completo.</p>
 
-Amar você é fácil. É leve. É verdadeiro.
+<p>Amar você é fácil. É leve. É verdadeiro.</p>
 
-E se eu tivesse que escolher de novo, eu escolheria você em todas as vidas.
+<p>E se eu tivesse que escolher de novo, eu escolheria você em todas as vidas.</p>
 
-Eu te amo. 💕
+<p><strong>Eu te amo. 💕</strong></p>
+
 </div>
 
 <div class="galeria">
-
-<div class="foto" onclick="toggleFoto(this)">
+<img src="thay1.jpg">
 <img src="thay2.jpg">
-<div class="overlay">
-Você é o sinônimo de paz pro meu dia a dia. Acordo pensando em você e vou dormir pensando em você.
-</div>
-</div>
-
-<div class="foto" onclick="toggleFoto(this)">
 <img src="thay3.jpg">
-<div class="overlay">
-Sua alegria é a minha felicidade. Se você tiver feliz, eu tô feliz.
-</div>
-</div>
-
-<div class="foto" onclick="toggleFoto(this)">
 <img src="thay4.jpg">
-<div class="overlay">
-Você é linda, meu amor… mas isso é o de menos em você.
-</div>
-</div>
-
-<div class="foto" onclick="toggleFoto(this)">
 <img src="thay5.jpg">
-<div class="overlay">
-Cada momento contigo é incrível e único.
-</div>
-</div>
-
-<div class="foto" onclick="toggleFoto(this)">
 <img src="thay6.jpg">
-<div class="overlay">
-Seu toque é onde me encontro.
-</div>
-</div>
-
-</div>
-
-<div class="paraSempre">
-Para sempre eu e você. ❤️
-</div>
-
-<div class="destaqueFinal">
 <img src="thay7.jpg">
 </div>
 
-</section>
+<div class="final">
+Para sempre nós dois. 💖
+</div>
+
+</div>
 
 <script>
 
-/* CORAÇÕES */
-setInterval(()=>{
-const heart=document.createElement("div");
-heart.className="coracao";
-heart.innerHTML="💖";
-heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(15+Math.random()*25)+"px";
-heart.style.animationDuration=(4+Math.random()*4)+"s";
-document.body.appendChild(heart);
-setTimeout(()=>heart.remove(),7000);
-},300);
+let tentativas = 0;
+const sim = document.getElementById("sim");
+const nao = document.getElementById("nao");
+const tela1 = document.getElementById("tela1");
+const tela2 = document.getElementById("tela2");
+const msgNao = document.getElementById("msgNao");
 
-/* BOTÃO SIM FOGE 2 VEZES */
-let tentativas=0;
-const btnSim=document.getElementById("sim");
-
-btnSim.addEventListener("mouseover",()=>{
-if(tentativas<2){
-btnSim.style.position="absolute";
-btnSim.style.left=Math.random()*70+"%";
-btnSim.style.top=Math.random()*70+"%";
+sim.addEventListener("click",()=>{
+if(tentativas < 2){
+sim.style.position="absolute";
+sim.style.top=Math.random()*80+"%";
+sim.style.left=Math.random()*80+"%";
 tentativas++;
 }else{
-btnSim.onclick=abrirTela2;
+tela1.style.display="none";
+tela2.style.display="block";
+window.scrollTo(0,0);
 }
 });
 
-function respostaNao(){
-document.getElementById("msgNao").innerText=
-"Você está mentindo, amor... eu conheço o seu olhar ❤️";
-}
+nao.addEventListener("click",()=>{
+msgNao.style.display="block";
+});
 
-function abrirTela2(){
-document.getElementById("tela1").style.display="none";
-document.getElementById("tela2").style.display="block";
-window.scrollTo(0,0);
-}
+document.addEventListener("click",(e)=>{
+const coracao = document.createElement("div");
+coracao.className="coracao";
+coracao.innerHTML="💖";
+coracao.style.left=e.clientX+"px";
+coracao.style.top=e.clientY+"px";
+document.body.appendChild(coracao);
 
-function toggleFoto(el){
-el.classList.toggle("active");
-}
+setTimeout(()=>{coracao.remove()},4000);
+});
 
 </script>
 
